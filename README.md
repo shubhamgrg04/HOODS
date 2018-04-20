@@ -6,7 +6,8 @@
 - ## Naming Conventions
 
      1. A method/function should always start with a small letter.
-        ```javscript
+
+        ```javascript
         // bad example
         function MyFunction() {...}
 
@@ -14,32 +15,27 @@
         function myFunction() {...}
         ```
 
-     2. Follow the camel case convention, typing the words in lower-case, only capitalizing the first letter in each word.
+     2. for Variables follow the camel case convention, typing the words in lower-case, only capitalizing the first letter in each word.
 
+      
         ```javascript
-        // Good example constructor = TitleCase
-        var test = new PrototypeApplication();
+        // good example
+        var deliveryNote = 1;
 
-        // Bad example constructor
-        var test = new PROTOTYPEAPPLICATION();
+        // bad example
+        var delivery_note = 1;
+        ```
+     3. for function with multiple words should always use an underscore between words.
 
+          ```javascript
+        
         // Good example functions/methods = camelCase
-        myFunction();
-        calculateArea();
+        my_function();
+        calculate_area();
 
         // Bad example functions/methods
         MyFunction();
         CalculateArea();  
-        ```
-
-     3. Variables with multiple words should always use an underscore between words.
-
-        ```javascript
-        // bad example
-        var deliveryNote = 1;
-
-        // good example
-        var delivery_note = 1;
         ```
 
 
