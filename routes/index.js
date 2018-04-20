@@ -1,10 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-
-/* GET home page. */
-const home = require('./home');
-const posts = require('./posts');
+var home = require('./home');
+var posts = require('./posts');
 
 module.exports = function(app) {
     // app.use(openEndpoints());
@@ -12,4 +10,3 @@ module.exports = function(app) {
     router.use('/posts', posts);
     return router;
 }
-
