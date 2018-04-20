@@ -20,7 +20,7 @@
       
         ```javascript
         // good example
-        var deliveryNote = 1;
+        var DeliveryNote = 1;
 
         // bad example
         var delivery_note = 1;
