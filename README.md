@@ -32,15 +32,15 @@
         CalculateArea();  
         ```
 
-     3.Variables with multiple words should always use an underscore between words.
+     3. Variables with multiple words should always use an underscore between words.
 
         ```javascript
-            // bad example
-            var deliveryNote = 1;
+        // bad example
+        var deliveryNote = 1;
 
-            // good example
-            var delivery_note = 1;
-            ```
+        // good example
+        var delivery_note = 1;
+        ```
 
 
 [Additional information on naming convention](http://www.j-io.org/Javascript-Naming_Conventions/#naming-conventions)
