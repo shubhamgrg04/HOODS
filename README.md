@@ -15,7 +15,7 @@
         function myFunction() {...}
         ```
 
-     2. for Variables follow the camel case convention, typing the words in lower-case, only capitalizing the first letter in each word.
+     2. for Variables follow the camel case convention, typing the words in lower-case, only capitalizing the first letter in each word. Incase of only one word write it in small
 
       
         ```javascript
