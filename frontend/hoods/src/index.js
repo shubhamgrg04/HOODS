@@ -5,6 +5,16 @@ import registerServiceWorker from './registerServiceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import home from './containers/home';
 import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
+import {createStore, applyMiddleware} from 'redux';
+import allReducers from './reducers';
+import {Provider} from 'react-redux';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
+
+
+const initialState = {};
+const middleware = applyMiddleware(thunk, logger);
+const store = createStore(allReducers, initialState, middleware);
 
 class App extends Component {
     render() {
@@ -35,5 +45,8 @@ class App extends Component {
     }
   }
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+ReactDOM.render(
+        <Provider store={store}>
+            <App />
+        </Provider>
+        , document.getElementById('root'));

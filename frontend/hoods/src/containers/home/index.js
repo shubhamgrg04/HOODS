@@ -2,8 +2,10 @@ import React from 'react';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import fachevronup from '@fortawesome/fontawesome-free-solid/faChevronUp';
 import fachevrondown from '@fortawesome/fontawesome-free-solid/faChevronDown';
+import {connect} from 'react-redux';
+import fetchPosts from '../../actions/fetch-posts';
 
-export default class Home extends React.Component {
+class Home extends React.Component {
     render(){
         return(
             <div>
@@ -11,11 +13,15 @@ export default class Home extends React.Component {
                 <div className="container mt-5">
                     <div className="row">
                         <Channels />
-                        <Posts />
+                        <Posts posts={this.props.posts}/>
                     </div>
                 </div>
             </div>
         );
+    }
+
+    componentWillMount() {
+        this.props.fetchPosts();
     }
 }
 
@@ -64,42 +70,46 @@ class Channels extends React.Component {
 
 class Posts extends React.Component {
     render() {
-        var posts = [
-            {
-                title : "Credit Suisse is offering course in BITS",
-                publishDate : "",
-                author : "Shubham Garg",
-                votes : 204,
-                comments : 20,
-            }, 
-            {
-                title : "Meditation Session by Mini Sadhguru",
-                publishDate : "",
-                author : "Suryansh Tiwari",
-                votes : 44,
-                comments : 6,
-            },
-        ];
-        var postItems = posts.map((post) => {
-            return (
-                <div className="post d-flex flex-row p-4 m-0">
-                    <div className="d-flex flex-column" style={{color:"#7f7f7f"}}>
-                        <div className="p-0  post-upvote text-center"><a href="upvote()"><FontAwesomeIcon icon={fachevronup} size="3x"/></a></div>
-                        <div className="h5 p-0 post-votes text-center">{post.votes}</div>
-                        <div className="p-0 post-downvote text-center"><a href="downvote()"><FontAwesomeIcon icon={fachevrondown} size="3x"/></a></div>
+        var posts = this.props.posts;
+        if(posts!=null) {
+            var postItems = posts.map((post) => {
+                return (
+                    <div className="post d-flex flex-row p-4 m-0">
+                        <div className="d-flex flex-column" style={{color:"#7f7f7f"}}>
+                            <div className="p-0  post-upvote text-center"><a href="upvote()"><FontAwesomeIcon icon={fachevronup} size="3x"/></a></div>
+                            <div className="h5 p-0 post-votes text-center">{post.votes}</div>
+                            <div className="p-0 post-downvote text-center"><a href="downvote()"><FontAwesomeIcon icon={fachevrondown} size="3x"/></a></div>
+                        </div>
+                        <div className="ml-4 p-2">
+                            <h4 className="post-heading">{post.title}</h4>
+                            <p className="post-details" >posted 3 days ago by <a className="post-author"  href="profiles/454df8">{post.author}</a></p>
+                            <a className="post-comments mt-2">{post.comments} Comments</a>
+                        </div>
                     </div>
-                    <div className="ml-4 p-2">
-                        <h4 className="post-heading">{post.title}</h4>
-                        <p className="post-details" >posted 3 days ago by <a className="post-author"  href="profiles/454df8">{post.author}</a></p>
-                        <a className="post-comments mt-2">{post.comments} Comments</a>
-                    </div>
-                </div>
-            );
-        });
+                );
+            });
+        }
+        
         return (
             <div className="posts col-md-9">
                 {postItems}
             </div>
         );
     }
+
+    
 }
+
+function mapStateToProps(state) {
+    return {
+        posts: state.posts
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        fetchPosts: () => dispatch(fetchPosts())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
