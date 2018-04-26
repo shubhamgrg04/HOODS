@@ -4,13 +4,14 @@ import {
 
 var addNewPost = function(data) {
     var promise = new Promise(function(resolve, reject) {
-    var post = new PostDataModel(data);
-    resolve(post);
-    // post.save(function(err, data){
-    // 	if(err)reject(err);
-    // 	resolve(data);
-    // });
-});
+        var post = new PostDataModel(data);
+        post.save();
+        resolve(post);
+        // post.save(function(err, data){
+        // 	if(err)reject(err);
+        // 	resolve(data);
+        // });
+    });
     return promise;
 }
 

@@ -4,16 +4,24 @@ import fachevronup from '@fortawesome/fontawesome-free-solid/faChevronUp';
 import fachevrondown from '@fortawesome/fontawesome-free-solid/faChevronDown';
 import {connect} from 'react-redux';
 import fetchPosts from '../../actions/fetch-posts';
+import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
 
 class Home extends React.Component {
     render(){
         return(
             <div>
                 <HomeJumbotron />
-                <div className="container mt-5">
+                <div className="container-fluid mt-5">
                     <div className="row">
-                        <Channels />
-                        <Posts posts={this.props.posts}/>
+                        <Channels fetchPosts={this.props.fetchPosts} />
+                        <Route path={`/:channel/newpost`} render={ (props) => (
+                            <NewPost {...props}  />
+                        ) } />
+                        <Route exact path={`/:channel`} render={ (props) => {
+                            return(
+                                <Posts {...props} posts={this.props.posts}  />
+                            );
+                        } } />
                     </div>
                 </div>
             </div>
@@ -21,14 +29,14 @@ class Home extends React.Component {
     }
 
     componentWillMount() {
-        this.props.fetchPosts();
+        this.props.fetchPosts('general');
     }
 }
-
+ 
 function HomeJumbotron(props) {
     return (
     <div className="jumbotron mb-0 mt-5 bg-white">
-        <div className="container">
+        <div className="container-fluid">
             <p className="display-4" style={{color:"#d2d8ea"}}>Ask and Discuss with fellow BITSians</p>
         </div>
     </div>
@@ -51,12 +59,12 @@ class Channels extends React.Component {
         var channelItems = channels.map((channel) => {
             return (
             <li className="nav-item">
-                <a href={this.linkFromName(channel)} className="nav-link">{channel}</a>
+                <Link to={"/" + this.linkFromName(channel)} onClick={this.props.fetchPosts(channel)} className="nav-link">{channel}</Link>
             </li>
             );
         });
         return (
-            <div className="col-md-3 channels" >
+            <div className="col-lg-2 channels" >
                 <ul className="nav flex-column">
                     <li className="nav-item">
                         <h5 className="nav-link">Channels</h5>
@@ -91,13 +99,22 @@ class Posts extends React.Component {
         }
         
         return (
-            <div className="posts col-md-9">
+            <div className="posts col-md-5">
+                <Link to={"/" + this.props.match.params.channel + "/newpost"} role="button" class="btn float-right add-new mb-3" >New Post</Link>
+                <div class="clearfix"></div>
                 {postItems}
             </div>
         );
     }
-
     
+}
+
+class NewPost extends  React.Component {
+    render() {
+        return (
+            <div>add new post here</div>
+        );
+    }
 }
 
 function mapStateToProps(state) {
@@ -108,7 +125,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchPosts: () => dispatch(fetchPosts())
+        fetchPosts: (channelName) => dispatch(fetchPosts(channelName))
     }
 }
 

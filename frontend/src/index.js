@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import registerServiceWorker from './registerServiceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import home from './containers/home';
 import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
@@ -20,7 +19,7 @@ class App extends Component {
     render() {
       return (
         <div>
-          <nav className="navbar navbar-expand-lg container navbar-light">
+          <nav className="navbar navbar-expand-lg container-fluid navbar-light">
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
@@ -36,7 +35,7 @@ class App extends Component {
                 </ul>
             </div>
           </nav>
-              <BrowserRouter>
+              <BrowserRouter >
                 <Route path="/" component={home} />
               </BrowserRouter>
 

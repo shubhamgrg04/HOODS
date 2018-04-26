@@ -36,3 +36,8 @@
         .channels a {
             color : #a6afca;
         }
+
+        .add-new {
+            color: #fff;
+            background: rgb(255, 153, 102);
+        }

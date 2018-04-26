@@ -29,7 +29,6 @@ router.post('/', function(req, res){
 		res.send({
 			body: data
 		});
-		data.save();
 		// res.redirect('/');
 
 	// 	res.redirect('/');

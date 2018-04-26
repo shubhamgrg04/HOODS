@@ -1,8 +1,8 @@
 export const FETCHED_POSTS = 'FETCHED_POSTS';
 
-export default function fetchPosts() {
+export default function fetchPosts(channelName="general") {
     return (dispatch) => {
-        fetch("http://localhost:8080")
+        fetch("http://localhost:8080/" + channelName + '/posts')
         .then((response)=> response.json())
         .then(posts => {
             dispatch({
