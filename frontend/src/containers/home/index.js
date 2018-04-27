@@ -5,6 +5,7 @@ import fachevrondown from '@fortawesome/fontawesome-free-solid/faChevronDown';
 import {connect} from 'react-redux';
 import fetchPosts from '../../actions/fetch-posts';
 import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
+import {Field, reduxForm} from 'redux-form';
 
 class Home extends React.Component {
     render(){
@@ -118,12 +119,36 @@ class Posts extends React.Component {
 }
 
 class NewPost extends  React.Component {
+
+    submit = (values) => {
+        fetch(
+            "http://localhost:8080/" + this.props.match.params.channel + "/newpost",
+            {   method : 'post',
+                mode : 'no-cors',
+                body : JSON.stringify(values)
+            }            
+        )
+    };
+
     render() {
-        return (
-            <div>add new post here</div>
-        );
+        let NewPostForm = (props) => {
+            console.log(props);
+            const {handleSubmit} = props;
+            return (
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <Field name="title" component="textarea" type="text" />
+                    </div>
+                    <button className="btn btn-primary" type="submit">Submit</button>
+                </form>
+            );
+        };
+        NewPostForm = reduxForm({form : 'newpost'})(NewPostForm);
+        return <NewPostForm onSubmit={this.submit} /> ;
     }
 }
+
+
 
 function mapStateToProps(state) {
     return {
