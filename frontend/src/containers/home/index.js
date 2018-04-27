@@ -8,28 +8,25 @@ import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
 
 class Home extends React.Component {
     render(){
+        var channelPosts = this.props.channelPosts;
         return(
             <div>
                 <HomeJumbotron />
                 <div className="container-fluid mt-5">
                     <div className="row">
-                        <Channels fetchPosts={this.props.fetchPosts} />
+                        <Channels />
                         <Route path={`/:channel/newpost`} render={ (props) => (
                             <NewPost {...props}  />
                         ) } />
                         <Route exact path={`/:channel`} render={ (props) => {
                             return(
-                                <Posts {...props} posts={this.props.posts}  />
+                                <Posts {...props} channelPosts={channelPosts}  fetchPosts={this.props.fetchPosts} />
                             );
                         } } />
                     </div>
                 </div>
             </div>
         );
-    }
-
-    componentWillMount() {
-        this.props.fetchPosts('general');
     }
 }
  
@@ -59,7 +56,7 @@ class Channels extends React.Component {
         var channelItems = channels.map((channel) => {
             return (
             <li className="nav-item">
-                <Link to={"/" + this.linkFromName(channel)} onClick={this.props.fetchPosts(channel)} className="nav-link">{channel}</Link>
+                <Link to={"/" + this.linkFromName(channel)} className="nav-link">{channel}</Link>
             </li>
             );
         });
@@ -78,8 +75,16 @@ class Channels extends React.Component {
 
 class Posts extends React.Component {
     render() {
-        var posts = this.props.posts;
-        if(posts!=null) {
+        console.log("Component rerendered. " + this.props.match.params.channel);
+        console.log(this.props.channelPosts);
+        var channelPosts = this.props.channelPosts;
+        
+        if(channelPosts!=null) {
+            console.log("Channel posts not matching channel. Reloading channel Posts. " + this.props.match.params.channel);
+            if(channelPosts.channel != this.props.match.params.channel) {
+                this.props.fetchPosts(this.props.match.params.channel);
+            }
+            var posts = channelPosts.posts;
             var postItems = posts.map((post) => {
                 return (
                     <div className="post d-flex flex-row p-4 m-0">
@@ -96,6 +101,9 @@ class Posts extends React.Component {
                     </div>
                 );
             });
+        } else {
+            console.log("Channelposts is null. " + this.props.match.params.channel);
+            this.props.fetchPosts('general');
         }
         
         return (
@@ -119,7 +127,7 @@ class NewPost extends  React.Component {
 
 function mapStateToProps(state) {
     return {
-        posts: state.posts
+        channelPosts: state.channelPosts
     };
 }
 

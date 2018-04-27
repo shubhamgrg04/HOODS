@@ -7,6 +7,7 @@ export default function fetchPosts(channelName="general") {
         .then(posts => {
             dispatch({
                 type: FETCHED_POSTS,
+                channel: channelName,
                 posts: posts
             })
         });
