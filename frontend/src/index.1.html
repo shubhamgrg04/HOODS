@@ -1,0 +1,204 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Raleway:800|Lato:400');
+        
+        .navbar {
+            border-bottom : 1px solid #e8e8e8;
+        }
+
+        .post-heading {
+            font-weight: 600;
+            font-size: 20px;
+        }
+
+        .post-details {
+            font-weight: 400;
+            font-size: 13px;
+            color : #999;
+        }
+
+        .post-author {
+            font-weight: 600;
+            color: #000;
+        }
+
+        .post-actions {
+            font-weight: 600;
+            font-size: 11px;
+        }
+
+        .time-ago {
+            color : #c9c9c9;
+        }
+
+        .post-votes {
+            font-family: 'Lato', serif;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .fas{
+            color : #a6afca;
+        }
+
+
+        .channels a {
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 20px;
+            color : #a6afca;
+        }
+
+        .ad-heading {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .color-primary {
+            color: #ff9966;
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand mr-auto color-primary" href="#" >HOODS</a>
+            <ul class="navbar-nav mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">My Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="jumbotron mb-0 mt-5" style="background: #fff;">
+        <div class="container">
+            <div class="d-flex flex-row">
+                <div class="col-md-6 m-2" >
+                    <p class="heading" style="color:#000;font-size: 28px; font-weight: 700">College Communities</p>
+                    <p class="sub-heading" style="color:#999; font-size: 18px; font-weight: 200;">
+                        Interact with fellow students and do amazing things. Hoods is a platform to connect college students to discuss ideas, 
+                        exchange things, make plans and connect with like minded people. There exist reddit, tumble etc. but they are not closed
+                        communites which doesn't allow to effectively discuss local issues.
+                    </p>
+                    <a class="btn pl-4 pr-4 pt-2 pb-2 mt-2" style="background: #ff9966; color:#fff; font-weight: 600;">SIGN UP</a>
+                </div>
+                <div class="col-md-6 m-2" >
+                    <img class="float-right my-auto" style="width: 300px;" src="./img2.svg"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-2 channels">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <h5 class="nav-link">Channels</h5>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">General</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Talent Showcase</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Internships</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Placements</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Cab Sharing</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="posts col-md-7">
+                    <div class="post d-flex flex-row p-4 m-0">
+                        <div class="d-flex flex-column my-auto" style="color:#7f7f7f;">
+                            <div class="justify-content-center align-self-center">
+                                <div class="p-0  post-upvote text-center"><a href="upvote()"><i class="fas fa-chevron-up fa-3x"></i></a></div>
+                                <div class="h5 p-0 post-votes text-center">204</div>
+                                <div class="p-0 post-downvote text-center"><a href="downvote()"><i class="fas fa-chevron-down fa-3x"></i></a></div>
+                            </div>
+                        </div>
+                        <div class="ml-4 p-2 my-auto">
+                            <p class="post-details" ><a class="post-author"  href="profiles/454df8">Shubham Garg</a></p>
+                            <h4 class="post-heading">Credit Suisse is offering a course in BITS</h4>
+                            <p class="post-details" >A finance professor told me that Credit Suisse is offering a course on Risk Management in BITS and it will be a major criterion for PS allotment to finance PS stations.</p>
+                            <p class="post-actions">
+                                <a><span class="color-primary">4 ANSWERS</span></a>
+                                <a class="ml-2">SHARE</a>
+                                <span class="time-ago ml-2">7 HOURS AGO</span>
+                            </p>
+                        </div>
+                    </div>
+    
+                    <div class="post d-flex flex-row p-4 m-0">
+                        <div class="d-flex flex-column my-auto" style="color:#7f7f7f;">
+                            <div class="justify-content-center align-self-center">
+                                <div class="p-0  post-upvote text-center"><a href="upvote()"><i class="fas fa-chevron-up fa-3x"></i></a></div>
+                                <div class="h5 p-0 post-votes text-center">444</div>
+                                <div class="p-0 post-downvote text-center"><a href="downvote()"><i class="fas fa-chevron-down fa-3x"></i></a></div>
+                            </div>
+                        </div>
+                        <div class="ml-4 p-2 my-auto">
+                            <p class="post-details" ><a class="post-author"  href="profiles/454df8">Surayansh Tiwari</a></p>
+                            <h4 class="post-heading">Meditation classes by Isha Foundation in Summer Vacations</h4>
+                            <p class="post-details" ></p>
+                            <p class="post-actions">
+                                <a><span class="color-primary">16 ANSWERS</span></a>
+                                <a class="ml-2">SHARE</a>
+                                <span class="time-ago ml-2">3 DAYS AGO</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="posts col-md-3">
+                    <div class="post d-flex flex-column p-2 m-0">
+                        <div class="ml-2 p-2 my-auto">
+                            <h4 class="ad-heading">Software Engineering Intership @ Microsoft</h4>
+                            <p class="post-actions">
+                                <a class="">SHARE</a>
+                                <span class="time-ago ml-2">7 HOURS AGO</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="post d-flex flex-column p-2 m-0">
+                        <div class="ml-2 p-2 my-auto">
+                            <h4 class="ad-heading">Research Internships @ TA Deutcheland</h4>
+                            <p class="post-actions">
+                                <a class="">SHARE</a>
+                                <span class="time-ago ml-2">3 DAYS AGO</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="post d-flex flex-column p-2 m-0">
+                        <div class="ml-2 p-2 my-auto">
+                            <h4 class="ad-heading">Anita Borg Women Hackathon</h4>
+                            <p class="post-actions">
+                                <a class="">SHARE</a>
+                                <span class="time-ago ml-2">3 DAYS AGO</span>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+</body>
+</html>

@@ -1,43 +1,93 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:500|Lato:400');
+.navbar {
+    border-bottom : 1px solid #e8e8e8;
+}
 
-        .post-heading {
-            font-family: 'Montserrat', serif;
-        }
+.logo {
+    font-weight: 500;
+}
 
-        .post-details {
-            font-family: 'Lato', serif;
-            font-size: 18px;
-        }
+.post-heading {
+    font-weight: 600;
+    font-size: 20px;
+}
 
-        .post-author {
-            color: #a6afca;
-        }
+.post-details {
+    font-weight: 400;
+    font-size: 13px;
+    color : #999;
+}
 
-        .post-comments {
-            font-family: 'Lato', serif;
-            font-size: 18px;
-        }
+.post-author {
+    font-weight: 600;
+    color: #000;
+}
 
-        .post-votes {
-            font-family: 'Lato', serif;
-            font-size: 24px;
-            font-weight: bold;
-        }
+.post-actions {
+    font-weight: 600;
+    font-size: 11px;
+}
 
-        .post-upvote svg{
-            color : #a6afca;
-        }
+.time-ago {
+    color : #c9c9c9;
+}
 
-        .post-downvote svg{
-            color : #a6afca;
-        }
+.post-votes {
+    font-size: 24px;
+    font-weight: bold;
+    color: #a6afca;
+}
+
+.post-upvote a, .post-downvote a{
+    color : #a6afca;
+}
 
 
-        .channels a {
-            color : #a6afca;
-        }
+.channels a {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    color : #a6afca;
+}
 
-        .add-new {
-            color: #fff;
-            background: rgb(255, 153, 102);
-        }
+.classified-heading {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.color-primary {
+    color: #ff9966;
+}
+
+.jumbotron .heading{
+    color:#000;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.jumbotron .sub-heading{
+    color:#999;
+    font-size: 18px;
+    font-weight: 200;
+}
+
+.btn-custom {
+    background: #ff9966;
+    color:#fff;
+    font-weight: 600;
+    border: none;
+}
+
+.btn-custom:hover {
+    background: #ffad84;
+    border: none;
+}
+
+.btn-custom:active {
+    background: #ffad84;
+    border: none;
+}
+
+.add-new {
+    color: #fff;
+    background: rgb(255, 153, 102);
+}
