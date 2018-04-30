@@ -205,7 +205,7 @@ class NewPost extends  React.Component {
             console.log(props);
             const {handleSubmit} = props;
             return (
-                <form onSubmit={handleSubmit}>
+                <form class="col-md-7" onSubmit={handleSubmit}>
                     <div>
                         <Field name="title" component="textarea" type="text" />
                     </div>
